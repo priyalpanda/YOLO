@@ -1,0 +1,354 @@
+{
+  "summary": {
+    "false_negative": 340,
+    "poor_localization": 29,
+    "false_positive": 70,
+    "misclassification": 3
+  },
+  "per_image": {
+    "000000000009.jpg": {
+      "false_negative": 4
+    },
+    "000000000025.jpg": {},
+    "000000000030.jpg": {},
+    "000000000034.jpg": {},
+    "000000000036.jpg": {},
+    "000000000042.jpg": {},
+    "000000000049.jpg": {
+      "false_negative": 2
+    },
+    "000000000061.jpg": {},
+    "000000000064.jpg": {},
+    "000000000071.jpg": {
+      "false_negative": 10,
+      "poor_localization": 1
+    },
+    "000000000072.jpg": {},
+    "000000000073.jpg": {
+      "false_positive": 1
+    },
+    "000000000074.jpg": {
+      "false_negative": 4,
+      "poor_localization": 1,
+      "false_positive": 1
+    },
+    "000000000077.jpg": {
+      "false_negative": 2
+    },
+    "000000000078.jpg": {},
+    "000000000081.jpg": {},
+    "000000000086.jpg": {
+      "false_negative": 1
+    },
+    "000000000089.jpg": {
+      "false_negative": 2
+    },
+    "000000000092.jpg": {
+      "false_positive": 1
+    },
+    "000000000094.jpg": {
+      "misclassification": 1
+    },
+    "000000000109.jpg": {
+      "false_negative": 2,
+      "false_positive": 1
+    },
+    "000000000110.jpg": {
+      "poor_localization": 1,
+      "false_negative": 5,
+      "false_positive": 2
+    },
+    "000000000113.jpg": {
+      "false_negative": 3,
+      "false_positive": 1
+    },
+    "000000000127.jpg": {
+      "false_negative": 6,
+      "poor_localization": 1,
+      "false_positive": 1
+    },
+    "000000000133.jpg": {
+      "false_negative": 1
+    },
+    "000000000136.jpg": {},
+    "000000000138.jpg": {
+      "poor_localization": 1,
+      "false_positive": 6
+    },
+    "000000000142.jpg": {
+      "false_negative": 2,
+      "false_positive": 1
+    },
+    "000000000143.jpg": {},
+    "000000000144.jpg": {},
+    "000000000149.jpg": {
+      "false_negative": 18
+    },
+    "000000000151.jpg": {},
+    "000000000154.jpg": {},
+    "000000000164.jpg": {
+      "false_negative": 30,
+      "poor_localization": 2,
+      "false_positive": 2
+    },
+    "000000000165.jpg": {
+      "poor_localization": 1
+    },
+    "000000000192.jpg": {
+      "false_negative": 1
+    },
+    "000000000194.jpg": {
+      "false_negative": 1,
+      "false_positive": 2
+    },
+    "000000000196.jpg": {
+      "poor_localization": 3,
+      "false_negative": 18,
+      "false_positive": 3
+    },
+    "000000000201.jpg": {
+      "false_negative": 2
+    },
+    "000000000208.jpg": {
+      "false_negative": 1,
+      "poor_localization": 1,
+      "false_positive": 1
+    },
+    "000000000241.jpg": {
+      "false_negative": 2,
+      "false_positive": 1
+    },
+    "000000000247.jpg": {
+      "false_negative": 5
+    },
+    "000000000250.jpg": {},
+    "000000000257.jpg": {
+      "false_negative": 15,
+      "false_positive": 3
+    },
+    "000000000260.jpg": {
+      "false_negative": 2
+    },
+    "000000000263.jpg": {},
+    "000000000283.jpg": {
+      "false_positive": 1
+    },
+    "000000000294.jpg": {
+      "false_negative": 12,
+      "poor_localization": 2,
+      "false_positive": 3
+    },
+    "000000000307.jpg": {},
+    "000000000308.jpg": {
+      "poor_localization": 1,
+      "false_negative": 2,
+      "false_positive": 1
+    },
+    "000000000309.jpg": {
+      "false_negative": 1
+    },
+    "000000000312.jpg": {
+      "false_negative": 1
+    },
+    "000000000315.jpg": {
+      "poor_localization": 2,
+      "false_negative": 19,
+      "false_positive": 2
+    },
+    "000000000321.jpg": {},
+    "000000000322.jpg": {
+      "false_positive": 1
+    },
+    "000000000326.jpg": {},
+    "000000000328.jpg": {
+      "poor_localization": 2,
+      "false_negative": 2
+    },
+    "000000000332.jpg": {
+      "misclassification": 1,
+      "false_negative": 1,
+      "false_positive": 2
+    },
+    "000000000338.jpg": {
+      "false_positive": 2
+    },
+    "000000000349.jpg": {
+      "false_negative": 2
+    },
+    "000000000357.jpg": {
+      "false_negative": 8
+    },
+    "000000000359.jpg": {
+      "false_negative": 1
+    },
+    "000000000360.jpg": {
+      "false_negative": 2
+    },
+    "000000000368.jpg": {
+      "false_negative": 4,
+      "poor_localization": 1,
+      "false_positive": 2
+    },
+    "000000000370.jpg": {},
+    "000000000382.jpg": {},
+    "000000000384.jpg": {
+      "poor_localization": 1,
+      "false_negative": 5,
+      "misclassification": 1,
+      "false_positive": 1
+    },
+    "000000000387.jpg": {
+      "false_negative": 1
+    },
+    "000000000389.jpg": {
+      "poor_localization": 1,
+      "false_negative": 6,
+      "false_positive": 1
+    },
+    "000000000394.jpg": {},
+    "000000000395.jpg": {
+      "false_negative": 6,
+      "poor_localization": 1,
+      "false_positive": 2
+    },
+    "000000000397.jpg": {
+      "poor_localization": 1,
+      "false_negative": 2,
+      "false_positive": 1
+    },
+    "000000000400.jpg": {},
+    "000000000404.jpg": {
+      "poor_localization": 1,
+      "false_negative": 2
+    },
+    "000000000415.jpg": {},
+    "000000000419.jpg": {
+      "false_negative": 5
+    },
+    "000000000428.jpg": {},
+    "000000000431.jpg": {},
+    "000000000436.jpg": {
+      "false_positive": 1
+    },
+    "000000000438.jpg": {
+      "false_positive": 4
+    },
+    "000000000443.jpg": {
+      "false_negative": 1
+    },
+    "000000000446.jpg": {
+      "false_negative": 9
+    },
+    "000000000450.jpg": {
+      "false_positive": 1
+    },
+    "000000000459.jpg": {},
+    "000000000471.jpg": {
+      "false_negative": 1
+    },
+    "000000000472.jpg": {},
+    "000000000474.jpg": {},
+    "000000000486.jpg": {
+      "false_negative": 6
+    },
+    "000000000488.jpg": {
+      "false_negative": 2
+    },
+    "000000000490.jpg": {},
+    "000000000491.jpg": {
+      "false_negative": 1
+    },
+    "000000000502.jpg": {},
+    "000000000508.jpg": {},
+    "000000000510.jpg": {
+      "false_negative": 1
+    },
+    "000000000514.jpg": {},
+    "000000000520.jpg": {
+      "false_negative": 1,
+      "poor_localization": 1,
+      "false_positive": 1
+    },
+    "000000000529.jpg": {
+      "poor_localization": 1
+    },
+    "000000000531.jpg": {
+      "false_negative": 6,
+      "false_positive": 1
+    },
+    "000000000532.jpg": {
+      "false_negative": 3,
+      "false_positive": 1
+    },
+    "000000000536.jpg": {
+      "false_negative": 5,
+      "false_positive": 1
+    },
+    "000000000540.jpg": {
+      "false_negative": 17
+    },
+    "000000000542.jpg": {
+      "false_negative": 6
+    },
+    "000000000544.jpg": {
+      "false_negative": 6
+    },
+    "000000000560.jpg": {
+      "false_negative": 2
+    },
+    "000000000562.jpg": {},
+    "000000000564.jpg": {
+      "false_negative": 6,
+      "false_positive": 3
+    },
+    "000000000569.jpg": {
+      "false_negative": 4
+    },
+    "000000000572.jpg": {},
+    "000000000575.jpg": {},
+    "000000000581.jpg": {},
+    "000000000584.jpg": {
+      "false_negative": 8
+    },
+    "000000000589.jpg": {
+      "false_negative": 1
+    },
+    "000000000590.jpg": {
+      "poor_localization": 1,
+      "false_positive": 1
+    },
+    "000000000595.jpg": {},
+    "000000000597.jpg": {},
+    "000000000599.jpg": {},
+    "000000000605.jpg": {
+      "poor_localization": 1,
+      "false_positive": 2
+    },
+    "000000000612.jpg": {
+      "false_negative": 6
+    },
+    "000000000620.jpg": {
+      "false_positive": 2
+    },
+    "000000000623.jpg": {
+      "false_negative": 2
+    },
+    "000000000625.jpg": {},
+    "000000000626.jpg": {},
+    "000000000629.jpg": {},
+    "000000000634.jpg": {
+      "false_positive": 1
+    },
+    "000000000636.jpg": {},
+    "000000000641.jpg": {
+      "false_negative": 9
+    },
+    "000000000643.jpg": {
+      "false_negative": 16
+    },
+    "000000000650.jpg": {},
+    "dining_table.jpg": {
+      "false_positive": 5
+    }
+  }
+}

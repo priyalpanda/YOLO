@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Model Evaluation Comparison Report</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.2);
+            padding: 40px;
+        }
+        h1 {
+            color: #2c3e50;
+            margin-bottom: 10px;
+            text-align: center;
+            font-size: 2.5em;
+        }
+        .subtitle {
+            text-align: center;
+            color: #7f8c8d;
+            margin-bottom: 30px;
+            font-size: 0.95em;
+        }
+        .summary-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin-bottom: 40px;
+        }
+        .summary-card {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+        .summary-card h3 {
+            font-size: 0.9em;
+            opacity: 0.9;
+            margin-bottom: 10px;
+        }
+        .summary-card .value {
+            font-size: 2em;
+            font-weight: bold;
+        }
+        .models-comparison {
+            margin-bottom: 40px;
+        }
+        .models-comparison h2 {
+            color: #2c3e50;
+            margin-bottom: 20px;
+            border-bottom: 3px solid #667eea;
+            padding-bottom: 10px;
+        }
+        .model-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 30px;
+        }
+        .model-table thead {
+            background: #667eea;
+            color: white;
+        }
+        .model-table th, .model-table td {
+            padding: 12px;
+            text-align: center;
+            border: 1px solid #ddd;
+        }
+        .model-table tr:nth-child(even) {
+            background: #f9f9f9;
+        }
+        .model-table tr:hover {
+            background: #f0f0f0;
+        }
+        .best {
+            background: #d4edda;
+            font-weight: bold;
+            color: #155724;
+        }
+        .worst {
+            background: #f8d7da;
+            font-weight: bold;
+            color: #721c24;
+        }
+        .visualizations {
+            margin-bottom: 40px;
+        }
+        .visualizations h2 {
+            color: #2c3e50;
+            margin-bottom: 20px;
+            border-bottom: 3px solid #667eea;
+            padding-bottom: 10px;
+        }
+        .chart-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
+            gap: 20px;
+        }
+        .chart-container {
+            background: #f9f9f9;
+            padding: 15px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        .chart-container img {
+            width: 100%;
+            height: auto;
+            border-radius: 5px;
+        }
+        .insights {
+            background: #e3f2fd;
+            padding: 20px;
+            border-left: 4px solid #667eea;
+            border-radius: 5px;
+            margin-bottom: 30px;
+        }
+        .insights h3 {
+            color: #1976d2;
+            margin-bottom: 10px;
+        }
+        .insights ul {
+            list-style-position: inside;
+            color: #424242;
+            line-height: 1.8;
+        }
+        .footer {
+            text-align: center;
+            color: #999;
+            font-size: 0.9em;
+            margin-top: 30px;
+            border-top: 1px solid #ddd;
+            padding-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🎯 Model Evaluation Comparison Report</h1>
+        <p class="subtitle">Generated on 2026-05-27 20:44:42</p>
+        
+        <div class="summary-grid">
+            <div class="summary-card">
+                <h3>Total Models Evaluated</h3>
+                <div class="value">4</div>
+            </div>
+            <div class="summary-card">
+                <h3>Best Performing</h3>
+                <div class="value">yolov8l</div>
+            </div>
+            <div class="summary-card">
+                <h3>Lowest Error Count</h3>
+                <div class="value">442</div>
+            </div>
+            <div class="summary-card">
+                <h3>Highest Error Count</h3>
+                <div class="value">610</div>
+            </div>
+        </div>
+        
+        <div class="insights">
+            <h3>📊 Key Insights</h3>
+            <ul>
+                <li><strong>yolov8l</strong> achieved the best performance with only <strong>442</strong> total errors across all error categories.</li>
+                <li><strong>yolov8n</strong> had the most errors with <strong>610</strong> total errors, indicating potential for optimization.</li>
+                <li><strong>False Negatives (Missed Objects)</strong>: The most common error type across all models, indicating room for improvement in detection sensitivity and recall.</li>
+                <li><strong>Misclassification Errors</strong>: Relatively low across models, suggesting good class recognition when objects are detected.</li>
+                <li><strong>Poor Localization</strong>: Moderate errors suggest the models could benefit from bounding box refinement techniques.</li>
+            </ul>
+        </div>
+        
+        <div class="models-comparison">
+            <h2>📈 Detailed Model Comparison</h2>
+            <table class="model-table">
+                <thead>
+                    <tr>
+                        <th>Model</th>
+                        <th>Total Errors</th>
+                        <th>False Negatives</th>
+                        <th>False Positives</th>
+                        <th>Poor Localization</th>
+                        <th>Misclassification</th>
+                        <th>Duplicate Detection</th>
+                        <th>Images with Errors</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr class="best">
+                        <td><strong>yolov8l</strong></td>
+                        <td>442</td>
+                        <td>340</td>
+                        <td>70</td>
+                        <td>29</td>
+                        <td>3</td>
+                        <td>0</td>
+                        <td>83</td>
+                    </tr>
+                    <tr class="">
+                        <td><strong>yolov8m</strong></td>
+                        <td>465</td>
+                        <td>347</td>
+                        <td>81</td>
+                        <td>28</td>
+                        <td>9</td>
+                        <td>0</td>
+                        <td>87</td>
+                    </tr>
+                    <tr class="worst">
+                        <td><strong>yolov8n</strong></td>
+                        <td>610</td>
+                        <td>503</td>
+                        <td>61</td>
+                        <td>34</td>
+                        <td>12</td>
+                        <td>0</td>
+                        <td>100</td>
+                    </tr>
+                    <tr class="">
+                        <td><strong>yolov8s</strong></td>
+                        <td>493</td>
+                        <td>381</td>
+                        <td>74</td>
+                        <td>30</td>
+                        <td>8</td>
+                        <td>0</td>
+                        <td>88</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        
+        <div class="visualizations">
+            <h2>📊 Comparison Visualizations</h2>
+            <div class="chart-grid">
+                <div class="chart-container">
+                    <img src="error_comparison.png" alt="Error Comparison Chart">
+                </div>
+                <div class="chart-container">
+                    <img src="best_model_sample.png" alt="Best Model Sample Detection">
+                </div>
+            </div>
+        </div>
+        
+        <div class="visualizations">
+            <h2>🏆 Best Performing Model: {best_model}</h2>
+            <div class="insights">
+                <h3>Model Performance Summary</h3>
+                <ul>
+                    <li><strong>Total Errors:</strong> {stats[best_model]['total_errors']}</li>
+                    <li><strong>False Negatives:</strong> {stats[best_model]['errors'].get('false_negative', 0)}</li>
+                    <li><strong>False Positives:</strong> {stats[best_model]['errors'].get('false_positive', 0)}</li>
+                    <li><strong>Poor Localization:</strong> {stats[best_model]['errors'].get('poor_localization', 0)}</li>
+                    <li><strong>Misclassification:</strong> {stats[best_model]['errors'].get('misclassification', 0)}</li>
+                    <li><strong>Images with Errors:</strong> {stats[best_model]['per_image_errors']}</li>
+                </ul>
+            </div>
+            {f'<div class="chart-container"><img src="best_model_sample.png" alt="Sample Detection Result"></div>' if sample_image else '<p style="color: #999;">Sample image not available</p>'}
+        </div>
+        
+        <div class="footer">
+            <p>Generated by YOLO Object Detection Pipeline | Comparison Report v1.0</p>
+        </div>
+    </div>
+</body>
+</html>

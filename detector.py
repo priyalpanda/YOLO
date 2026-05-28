@@ -18,8 +18,40 @@ def draw_boxes_and_labels(img, boxes, classes, confs, names):
     return img
 
 
-def run_detection(image_paths, output_dir, model_name='yolov8n.pt', conf=0.25, imgsz=640):
+def compute_iou(box, boxes):
+    x1 = np.maximum(box[0], boxes[:, 0])
+    y1 = np.maximum(box[1], boxes[:, 1])
+    x2 = np.minimum(box[2], boxes[:, 2])
+    y2 = np.minimum(box[3], boxes[:, 3])
+    inter_w = np.maximum(0.0, x2 - x1)
+    inter_h = np.maximum(0.0, y2 - y1)
+    inter_area = inter_w * inter_h
+    area1 = (box[2] - box[0]) * (box[3] - box[1])
+    area2 = (boxes[:, 2] - boxes[:, 0]) * (boxes[:, 3] - boxes[:, 1])
+    union_area = area1 + area2 - inter_area
+    return inter_area / np.maximum(union_area, 1e-6)
+
+
+def non_max_suppression(boxes, confs, classes, iou_thresh=0.5):
+    keep = []
+    idxs = np.argsort(confs)[::-1]
+    while len(idxs) > 0:
+        current = idxs[0]
+        keep.append(current)
+        if len(idxs) == 1:
+            break
+        rest = idxs[1:]
+        ious = compute_iou(boxes[current], boxes[rest])
+        same_class = classes[rest] == classes[current]
+        suppressed = (ious > iou_thresh) & same_class
+        idxs = rest[~suppressed]
+    return boxes[keep], classes[keep], confs[keep]
+
+
+def run_detection(image_paths, output_dir, model_name='yolov8n.pt', conf=0.4, imgsz=640):
     os.makedirs(output_dir, exist_ok=True)
+    pred_labels_dir = os.path.join(output_dir, 'labels')
+    os.makedirs(pred_labels_dir, exist_ok=True)
     model = YOLO(model_name)
     names = model.names if hasattr(model, 'names') else {}
 
@@ -44,7 +76,32 @@ def run_detection(image_paths, output_dir, model_name='yolov8n.pt', conf=0.25, i
                     boxes = r.boxes.xyxy.numpy()
                     classes = r.boxes.cls.numpy()
                     confs = r.boxes.conf.numpy()
-                img = draw_boxes_and_labels(img, boxes, classes, confs, names)
+
+                min_conf = max(conf, 0.4)
+                keep_mask = confs >= min_conf
+                boxes = boxes[keep_mask]
+                classes = classes[keep_mask]
+                confs = confs[keep_mask]
+
+                if len(boxes) > 0:
+                    boxes, classes, confs = non_max_suppression(boxes, confs, classes, iou_thresh=0.5)
+                    if len(boxes) > 0:
+                        img = draw_boxes_and_labels(img, boxes, classes, confs, names)
+                        # save predicted labels in YOLO normalized format (class x_center y_center w h [conf])
+                        h, w = img.shape[:2]
+                        pred_label_lines = []
+                        for (x1, y1, x2, y2), cls, c in zip(boxes, classes, confs):
+                            x_center = (x1 + x2) / 2.0 / w
+                            y_center = (y1 + y2) / 2.0 / h
+                            bw = (x2 - x1) / w
+                            bh = (y2 - y1) / h
+                            pred_label_lines.append(f"{int(cls)} {x_center:.6f} {y_center:.6f} {bw:.6f} {bh:.6f} {float(c):.6f}\n")
+                        pred_label_path = os.path.join(pred_labels_dir, os.path.splitext(os.path.basename(p))[0] + '.txt')
+                        try:
+                            with open(pred_label_path, 'w') as f:
+                                f.writelines(pred_label_lines)
+                        except Exception:
+                            pass
             out_path = os.path.join(output_dir, os.path.basename(p))
             # write with support for unicode paths
             ext = os.path.splitext(out_path)[1].lower()
